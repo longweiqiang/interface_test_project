@@ -5,7 +5,7 @@ path = '/api3/ec/navigation/page/getPageModule'
 # token = ''
 #
 
-readConfig = readConfig.ReadConfig()
+readConfig = readConfig.ReadConfigIni()
 url = readConfig.get_http('baseurl_prod')
 base_url = url + path
 print(base_url)
