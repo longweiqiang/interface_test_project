@@ -117,8 +117,6 @@ class ExcelData:
                 return self.opera_json.get_json_data(params)
             except KeyError:
                 return "Json文件中该key值不存在数据"
-        
-
 
     def get_assert(self, row):
         """获取接口断言数据"""

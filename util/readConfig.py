@@ -57,6 +57,11 @@ class OperationJson:
             return json.load(f)
 
     def get_json_data(self, key):
+        """
+        通过key值查找对应的value值
+        :param key: json文件中key
+        :return: key对应的value
+        """
         return self.getJson()[key]
 
 
