@@ -5,7 +5,7 @@
 # @Site    : 
 # @File    : readConfig.py
 # @Software: PyCharm
-
+import json
 import os
 import codecs
 import configparser
@@ -46,16 +46,30 @@ class ReadConfigIni:
         return value
 
 
+class OperationJson:
+
+    def getJson(self):
+        """
+        获取json文件内容
+        :return: 文件内容
+        """
+        with open(data_dir('test.json'), encoding='utf-8') as f:
+            return json.load(f)
+
+    def get_json_data(self, key):
+        return self.getJson()[key]
+
+
 class OperationExcel:
-    def getExcel(self,pathName='testFile',fileName='case.xls',sheetIndex=0):
+
+    def getExcel(self,fileName='case.xls',sheetIndex=0):
         """
         获取excel文件
-        :param pathName: 文件目录名称
         :param fileName: 文件名称
         :param sheetIndex: sheet下标
         :return: sheet内容
         """
-        excel_data = xlrd.open_workbook(data_dir(pathName, fileName))
+        excel_data = xlrd.open_workbook(data_dir(fileName))
         sheet = excel_data.sheet_by_index(sheetIndex)
         return sheet
 
@@ -75,12 +89,19 @@ class OperationExcel:
         """
         return self.getExcel().cell_value(row, col)
 
+    # def get_test_case_data(self,):
 
 
 
 
-# opera = OperationExcel()
-# print(opera.get_row_cel(1,1))
+
+
+
+
+
+
+# opera = OperationJson()
+# print(opera.get_json_data("walmart_c_index_001"))
 
 
 
